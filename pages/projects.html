@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Охотников Святослав</title>
+    <link rel="icon" href="../images/hacker.png">
+    <link rel="stylesheet" href="/style/index.css">
+
+</head>
+<div class="icon">
+    <img src="/images/icon.png">
+</div>
+
+<body>
+<div class="container">
+    <div id="header">Портфолио разработчика</div>
+    <!-- Меню -->
+    <div id="menu">
+        <ul>
+            <li><a href="../index.html">Главная</a></li>
+            <li><a href="projects.html">Проекты</a></li>
+            <li><a href="diary.html">Дневник</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+
+    </div>
+    <div class="modal-container">
+        <button class="modal-btn csharp" onclick="openModal('csharpModal')">C#</button>
+        <button class="modal-btn sql" onclick="openModal('sqlModal')">SQL</button>
+        <button class="modal-btn html5" onclick="openModal('html5Modal')">HTML5</button>
+    </div>
+
+    <!-- Модальное окно "C# проекты" -->
+    <div id="csharpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Проекты на C#</h2>
+                <span class="close" onclick="closeModal('csharpModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <i class="fas fa-server"></i>
+                        <h3>ATM Software</h3>
+                        <p>Программа, описывающая некоторые функции банкомата. Реализована на C# с использованием
+                            объектно-ориентированного программирования.</p>
+                        <a href="https://github.com/SWYATOSHAq/ATM_SoftWare.git" class="demo-link"
+                           target="_blank">Открыть на GitHub</a>
+                    </div>
+                    <div class="project-item">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Калькулятор</h3>
+                        <p>Расширенный калькулятор с графическим интерфейсом. Поддерживает основные математические
+                            операции и функции.</p>
+                        <a href="https://github.com/SWYATOSHAq/corporate_system_programming_calculator.git"
+                           class="demo-link"
+                           target="_blank">Открыть на GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно "SQL проекты" -->
+    <div id="sqlModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Проекты с SQL</h2>
+                <span class="close" onclick="closeModal('sqlModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <i class="fas fa-database"></i>
+                        <h3>База данных</h3>
+                        <p>В процессе...</p>
+                        <a href="#" class="demo-link">Открыть проект</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно "HTML5 проекты" -->
+    <div id="html5Modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Проекты на HTML5</h2>
+                <span class="close" onclick="closeModal('html5Modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <i class="fas fa-blog"></i>
+                        <h3>Персональный блог</h3>
+                        <p>Адаптивный веб-сайт блога с использованием современных технологий HTML5 и CSS3.</p>
+                        <a>Этот сайт</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+<script>
+    // Функция для открытия модального окна
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'block';
+        // Небольшая задержка для плавного появления
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+    }
+
+    // Функция для закрытия модального окна
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.remove('show');
+        // Ждем завершения анимации перед скрытием
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    // Закрытие модального окна при клике вне его области
+    window.onclick = function (event) {
+        document.querySelectorAll('.modal').forEach(modal => {
+            if (event.target === modal) {
+                closeModal(modal.id);
+            }
+        });
+    }
+
+    // Закрытие модального окна при нажатии клавиши Escape
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (modal.style.display === 'block') {
+                    closeModal(modal.id);
+                }
+            });
+        }
+    });
+</script>
+
+<div id="footer">
+    <p>Я открыт для предложений о работе и готов внести вклад в интересные проекты</p>
+    <button class="cta-button">Связаться со мной</button>
+    <p>© 2023 Охотников Святослав. Все права защищены.</p>
+    <img src="/images/моя печать.png" width="100"/>
+</div>
+
+</html>

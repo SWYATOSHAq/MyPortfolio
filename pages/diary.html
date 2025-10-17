@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Охотников Святослав</title>
+    <link rel="icon" href="../images/hacker.png">
+    <link rel="stylesheet" href="../style/diary.css">
+
+</head>
+
+<div class="icon">
+    <img src="/images/icon.png" alt="">
+</div>
+
+
+<body>
+<div class="container">
+    <div id="header">Портфолио разработчика</div>
+
+
+    <!-- Меню -->
+    <div id="menu">
+        <ul>
+            <li><a href="../index.html">Главная</a></li>
+            <li><a href="projects.html">Проекты</a></li>
+            <li><a href="diary.html">Дневник</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+    <div id="header">Мой учебный прогресс</div>
+    <div id="diary-content">
+        <div class="diary-grid">
+            <div class="diary-item">
+                <i class="fas fa plan"></i>
+                <p>1 сен - Начал изучать C#</p>
+                <p>1 сен - Начал изучать PostgreeSql</p>
+                <p>1 сен - Начал изучать Фронтенд</p>
+            </div>
+        </div>
+    </div>
+    <h2 class="section-title">Текущие курсы</h2>
+    <div class="skill-container">
+        <div class="skill-info">
+            <span class="skill-name">C#</span>
+            <span class="skill-percent">30%</span>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-progress all" style="--skill-level: 30%;"></div>
+        </div>
+    </div>
+    <div class="skill-container">
+        <div class="skill-info">
+            <span class="skill-name">HTML5</span>
+            <span class="skill-percent">20%</span>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-progress all" style="--skill-level: 20%;"></div>
+        </div>
+    </div>
+    <div class="skill-container">
+        <div class="skill-info">
+            <span class="skill-name">HTML5</span>
+            <span class="skill-percent">20%</span>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-progress all" style="--skill-level: 20%;"></div>
+        </div>
+    </div>
+    <div class="skill-container">
+        <div class="skill-info">
+            <span class="skill-name">SQL</span>
+            <span class="skill-percent">20%</span>
+        </div>
+        <div class="skill-bar">
+            <div class="skill-progress all" style="--skill-level: 20%;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Анимация при скролле
+    document.addEventListener('DOMContentLoaded', function () {
+        const skillContainers = document.querySelectorAll('.skill-container');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {threshold: 0.5});
+
+        skillContainers.forEach(container => {
+            observer.observe(container);
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctaButton = document.querySelector('.cta-button');
+        if (ctaButton) {
+            ctaButton.addEventListener('click', function () {
+                alert('Спасибо за проявленный интерес! Свяжитесь со мной через Telegram: @swyatoshaa');
+            });
+        }
+    });
+</script>
+</body>
+
+<div id="footer">
+    <p>Я открыт для предложений о работе и готов внести вклад в интересные проекты</p>
+    <button class="cta-button">Связаться со мной</button>
+    <p>© 2023 Охотников Святослав. Все права защищены.</p>
+    <img src="/images/моя печать.png" width="100" alt=""/>
+</div>
+
+</html>
